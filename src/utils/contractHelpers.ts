@@ -221,7 +221,7 @@ export const getEasterNftContract = (signer?: Signer | Provider) => {
   return getContract(easterNftAbi, getEasterNftAddress(), signer) as EasterNft
 }
 export const getKalosVaultContract = (signer?: Signer | Provider) => {
-  return getContract(kalosVaultAbi, getKalosVaultAddress(), signer) as KalosVault
+  return getContract(kalosVaultAbi, getKalosVaultAddress(), signer) as xaloVault
 }
 
 export const getXaloFlexibleSideVaultV2Contract = (signer?: Signer | Provider) => {

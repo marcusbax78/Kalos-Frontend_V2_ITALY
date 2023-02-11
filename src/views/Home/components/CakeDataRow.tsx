@@ -12,7 +12,7 @@ import { multicallv2 } from 'utils/multicall'
 import useSWR from 'swr'
 import { SLOW_INTERVAL } from 'config/constants'
 import { BigNumber } from '@ethersproject/bignumber'
-import { getXaloVaultV2Contract } from 'utils/contractHelpers'
+import { getKalosVaultContract, getkalosVaultContract } from 'utils/contractHelpers'
 
 const StyledColumn = styled(Flex)<{ noMobileBorder?: boolean; noDesktopBorder?: boolean }>`
   flex-direction: column;
@@ -73,7 +73,7 @@ const emissionsPerBlock = 30
  * https://bscscan.com/tx/0xd5ffea4d9925d2f79249a4ce05efd4459ed179152ea5072a2df73cd4b9e88ba7
  */
 const planetFinanceBurnedTokensWei = BigNumber.from('000000')
-const xaloVault = getXaloVaultV2Contract()
+const xaloVault = getKalosVaultContract()
 
 const CakeDataRow = () => {
   const { t } = useTranslation()

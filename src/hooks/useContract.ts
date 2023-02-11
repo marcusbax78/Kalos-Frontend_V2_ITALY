@@ -220,7 +220,7 @@ export const useVaultPoolContract = (vaultKey: VaultKey): XaloVaultV2 | XaloFlex
   const { library } = useActiveWeb3React()
   return useMemo(() => {
     if (vaultKey === VaultKey.XaloVault) {
-      return getXaloVaultV2Contract(library.getSigner())
+      return getKalosVaultContract(library.getSigner())
     }
     if (vaultKey === VaultKey.XaloFlexibleSideVault) {
       return getXaloFlexibleSideVaultV2Contract(library.getSigner())
@@ -229,13 +229,13 @@ export const useVaultPoolContract = (vaultKey: VaultKey): XaloVaultV2 | XaloFlex
   }, [library, vaultKey])
 }
 
-export const useXaloVaultContract = (withSignerIfPossible = true) => {
+export const useKalosVaultContract = (withSignerIfPossible = true) => {
   const { library, account } = useActiveWeb3React()
   const signer = useMemo(
     () => (withSignerIfPossible ? getProviderOrSigner(library, account) : null),
     [withSignerIfPossible, library, account],
   )
-  return useMemo(() => getXaloVaultV2Contract(signer), [signer])
+  return useMemo(() => getKalosVaultContract(signer), [signer])
 }
 
 export const usePredictionsContract = (address: string, tokenSymbol: string) => {
@@ -244,7 +244,7 @@ export const usePredictionsContract = (address: string, tokenSymbol: string) => 
     if (address === getPredictionsV1Address()) {
       return getPredictionsV1Contract(library.getSigner())
     }
-    const getPredContract = tokenSymbol === 'CAKE' ? getCakePredictionsContract : getPredictionsContract
+    const getPredContract = tokenSymbol === 'XALO' ? getCakePredictionsContract : getPredictionsContract
 
     return getPredContract(address, library.getSigner())
   }, [library, address, tokenSymbol])

@@ -21,7 +21,7 @@ import {
   getTradingCompetitionContractMoD,
   getEasterNftContract,
   getErc721Contract,
-  getXaloVaultV2Contract,
+  getKalosVaultContract,
   getPredictionsContract,
   getChainlinkOracleContract,
   getLotteryV2Contract,

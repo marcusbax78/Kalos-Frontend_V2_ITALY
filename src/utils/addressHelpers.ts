@@ -67,7 +67,7 @@ export const getVaultPoolAddress = (vaultKey: VaultKey) => {
   return getAddress(addresses[vaultKey])
 }
 
-export const getXaloVaultAddress = () => {
+export const getKalosVaultAddress = () => {
   return getAddress(addresses.xaloVault)
 }
 

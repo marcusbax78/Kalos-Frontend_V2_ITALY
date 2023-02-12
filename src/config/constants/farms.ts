@@ -53,7 +53,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'USDT-BUSD LP',
     lpAddresses: {
       97: '',
-      56: '0x754FC573358953B78D7698B5B510fA446648A8AC', //0xc188f34FA1217AE7da853986703b60A5DFDfb651' OLD FARM pid 3
+      56: '0x754FC573358953B78D7698B5B510fA446648A8AC', // 0xc188f34FA1217AE7da853986703b60A5DFDfb651' OLD FARM pid 3
     },
     token: serializedTokens.usdt,
     quoteToken: serializedTokens.busd,

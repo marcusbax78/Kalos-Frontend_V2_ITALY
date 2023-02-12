@@ -4,13 +4,13 @@ import { getBalanceAmount } from 'utils/formatBalance'
 
 import { useMemo } from 'react'
 
-export const useUserEnoughCakeValidator = (cakeAmount: string, stakingTokenBalance: BigNumber) => {
+export const useUserEnoughXaloValidator = (xaloAmount: string, stakingTokenBalance: BigNumber) => {
   const { t } = useTranslation()
-  const errorMessage = t('Insufficient CAKE balance')
+  const errorMessage = t('Insufficient XALO balance')
 
-  const userNotEnoughCake = useMemo(() => {
-    if (new BigNumber(cakeAmount).gt(getBalanceAmount(stakingTokenBalance, 18))) return true
+  const userNotEnoughXalo = useMemo(() => {
+    if (new BigNumber(xaloAmount).gt(getBalanceAmount(stakingTokenBalance, 18))) return true
     return false
-  }, [cakeAmount, stakingTokenBalance])
-  return { userNotEnoughCake, notEnoughErrorMessage: errorMessage }
+  }, [xaloAmount, stakingTokenBalance])
+  return { userNotEnoughXalo, notEnoughErrorMessage: errorMessage }
 }

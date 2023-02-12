@@ -32,7 +32,7 @@ export const vaultPoolConfig = {
   },
   [VaultKey.KalosVault]: {
     name: <Trans>Stake XALO</Trans>,
-    description: <Trans>Stake, Earn – And more!</Trans>,
+    description: <Trans>Stake & Earn !</Trans>,
     autoCompoundFrequency: 5000,
     gasLimit: 500000,
     tokenImage: {

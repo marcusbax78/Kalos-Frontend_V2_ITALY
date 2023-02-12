@@ -68,7 +68,7 @@ const deserializeFarm = (farm: SerializedFarm): DeserializedFarm => {
   }
 }
 
-const selectXaloFarm = (state: State) => state.farms.data.find((f) => f.pid === 9)
+const selectCakeFarm = (state: State) => state.farms.data.find((f) => f.pid === 1)
 const selectFarmByKey = (key: string, value: string | number) => (state: State) =>
   state.farms.data.find((f) => f[key] === value)
 
@@ -91,8 +91,8 @@ export const makeUserFarmFromPidSelector = (pid: number) =>
     }
   })
 
-export const priceXaloFromPidSelector = createSelector([selectXaloFarm], (xaloBnbFarm) => {
-  const xaloPriceBusdAsString = xaloBnbFarm.tokenPriceBusd
+export const priceXaloFromPidSelector = createSelector([selectCakeFarm], (cakeBnbFarm) => {
+  const xaloPriceBusdAsString = cakeBnbFarm.tokenPriceBusd
   return new BigNumber(xaloPriceBusdAsString)
 })
 

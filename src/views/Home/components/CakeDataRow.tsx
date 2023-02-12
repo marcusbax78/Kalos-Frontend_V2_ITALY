@@ -92,7 +92,7 @@ const CakeDataRow = () => {
       const burnedTokenCall = {
         address: tokens.xalo.address,
         name: 'balanceOf',
-        params: ['0x000000000000000000000000000000000000dEaD'],
+        params: ['0xc7799E49e05e2C868e5802Cec514a65061c68C02'],
       }
       const [tokenDataResultRaw, totalLockedAmount] = await Promise.all([
         multicallv2(xaloAbi, [totalSupplyCall, burnedTokenCall], {

@@ -35,6 +35,7 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.cake,
     quoteToken: serializedTokens.wbnb,
+    multiplier: '30',
   },
   {
     pid: 2,

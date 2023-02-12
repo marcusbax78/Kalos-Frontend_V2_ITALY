@@ -5,7 +5,7 @@ import {
   PoolsState,
   SerializedPool,
   SerializedVaultFees,
-  SerializedXaloVault,
+  SerializedKalosVault,
   SerializedLockedVaultUser,
   PublicIfoData,
   SerializedVaultUser,
@@ -291,7 +291,7 @@ export const updateUserPendingReward = createAsyncThunk<
   return { sousId, field: 'pendingReward', value: pendingRewards[sousId] }
 })
 
-export const fetchXaloVaultPublicData = createAsyncThunk<SerializedLockedXaloVault>(
+export const fetchKalosVaultPublicData = createAsyncThunk<SerializedLockedKalosVault>(
   'xaloVault/fetchPublicData',
   async () => {
     const publicVaultInfo = await fetchPublicVaultData()

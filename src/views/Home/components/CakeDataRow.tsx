@@ -12,7 +12,7 @@ import { multicallv2 } from 'utils/multicall'
 import useSWR from 'swr'
 import { SLOW_INTERVAL } from 'config/constants'
 import { BigNumber } from '@ethersproject/bignumber'
-import { getKalosVaultContract, getkalosVaultContract } from 'utils/contractHelpers'
+import { getKalosVaultContract, } from 'utils/contractHelpers'
 
 const StyledColumn = styled(Flex)<{ noMobileBorder?: boolean; noDesktopBorder?: boolean }>`
   flex-direction: column;

@@ -13,7 +13,7 @@ import { DeserializedFarm, DeserializedFarmsState, DeserializedFarmUserData, Sta
 import {
   farmSelector,
   farmFromLpSymbolSelector,
-  priceXaloFromPidSelector,
+  priceCakeFromPidSelector,
   makeBusdPriceFromPidSelector,
   makeUserFarmFromPidSelector,
   makeLpTokenPriceFromLpSymbolSelector,
@@ -98,6 +98,6 @@ export const useLpTokenPrice = (symbol: string) => {
 /**
  * @@deprecated use the BUSD hook in /hooks
  */
-export const usePriceXaloBusd = (): BigNumber => {
-  return useSelector(priceXaloFromPidSelector)
+export const usePriceCakeBusd = (): BigNumber => {
+  return useSelector(priceCakeFromPidSelector)
 }

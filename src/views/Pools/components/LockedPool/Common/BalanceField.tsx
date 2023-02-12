@@ -5,7 +5,7 @@ import { Dispatch, useMemo, memo, SetStateAction, useCallback } from 'react'
 import styled from 'styled-components'
 import { getFullDisplayBalance } from 'utils/formatBalance'
 import { getFullDecimalMultiplier } from 'utils/getFullDecimalMultiplier'
-import { useUserEnoughCakeValidator } from '../hooks/useUserEnoughCakeValidator'
+import { useUserEnoughXaloValidator } from '../hooks/useUserEnoughXaloValidator'
 
 const StyledButton = styled(Button)`
   flex-grow: 1;
@@ -33,7 +33,7 @@ const BalanceField: React.FC<PropsType> = ({
   stakingTokenBalance,
 }) => {
   const { t } = useTranslation()
-  const { userNotEnoughCake, notEnoughErrorMessage } = useUserEnoughCakeValidator(lockedAmount, stakingTokenBalance)
+  const { userNotEnoughXalo, notEnoughErrorMessage } = useUserEnoughXaloValidator(lockedAmount, stakingTokenBalance)
 
   const percent = useMemo(() => {
     const amount = new BigNumber(lockedAmount)

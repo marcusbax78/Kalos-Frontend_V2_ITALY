@@ -3,7 +3,7 @@ import { useTranslation } from 'contexts/Localization'
 import { differenceInHours } from 'date-fns'
 import { useVaultPoolByKey } from 'state/pools/hooks'
 import { DeserializedPool, VaultKey, DeserializedLockedVaultUser } from 'state/types'
-import { getXaloVaultEarnings } from '../helpers'
+import { getKalosVaultEarnings } from '../helpers'
 
 interface AutoEarningsBreakdownProps {
   pool: DeserializedPool
@@ -15,13 +15,13 @@ const AutoEarningsBreakdown: React.FC<AutoEarningsBreakdownProps> = ({ pool, acc
 
   const { earningTokenPrice } = pool
   const { pricePerFullShare, userData } = useVaultPoolByKey(pool.vaultKey)
-  const { autoXaloToDisplay, autoUsdToDisplay } = getXaloVaultEarnings(
+  const { autoXaloToDisplay, autoUsdToDisplay } = getKalosVaultEarnings(
     account,
     userData.xaloAtLastUserAction,
     userData.userShares,
     pricePerFullShare,
     earningTokenPrice,
-    pool.vaultKey === VaultKey.XaloVault
+    pool.vaultKey === VaultKey.KalosVault
       ? (userData as DeserializedLockedVaultUser).currentPerformanceFee
           .plus((userData as DeserializedLockedVaultUser).currentOverdueFee)
           .plus((userData as DeserializedLockedVaultUser).userBoostedShare)

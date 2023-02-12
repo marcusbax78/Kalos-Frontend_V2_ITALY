@@ -67,8 +67,8 @@ export const GAS_PRICE_GWEI = {
   testnet: parseUnits(GAS_PRICE.testnet, 'gwei').toString(),
 }
 
-export type DeserializedPoolVault = DeserializedPool & DeserializedXaloVault
-export type DeserializedPoolLockedVault = DeserializedPool & DeserializedLockedXaloVault
+export type DeserializedPoolVault = DeserializedPool & DeserializedKalosVault
+export type DeserializedPoolLockedVault = DeserializedPool & DeserializedLockedKalosVault
 
 export interface BigNumberToJson {
   type: 'BigNumber'
@@ -116,8 +116,8 @@ export interface DeserializedFarm extends DeserializedFarmConfig {
 }
 
 export enum VaultKey {
-  XaloVaultV1 = 'xaloVaultV1',
-  XaloVault = 'xaloVault',
+  KalosVaultV1 = 'xaloVaultV1',
+  KalosVault = 'xaloVault',
   XaloFlexibleSideVault = 'xaloFlexibleSideVault',
   IfoPool = 'ifoPool',
 }
@@ -250,7 +250,7 @@ export interface DeserializedLockedVaultUser extends DeserializedVaultUser {
   currentOverdueFee: BigNumber
 }
 
-export interface DeserializedXaloVault {
+export interface DeserializedKalosVault {
   totalShares?: BigNumber
   totalLockedAmount?: BigNumber
   pricePerFullShare?: BigNumber
@@ -259,17 +259,17 @@ export interface DeserializedXaloVault {
   userData?: DeserializedVaultUser
 }
 
-export interface DeserializedLockedXaloVault extends Omit<DeserializedXaloVault, 'userData'> {
+export interface DeserializedLockedKalosVault extends Omit<DeserializedKalosVault, 'userData'> {
   totalLockedAmount?: BigNumber
   userData?: DeserializedLockedVaultUser
 }
 
-export interface SerializedLockedXaloVault extends Omit<SerializedXaloVault, 'userData'> {
+export interface SerializedLockedKalosVault extends Omit<SerializedKalosVault, 'userData'> {
   totalLockedAmount?: SerializedBigNumber
   userData?: SerializedLockedVaultUser
 }
 
-export interface SerializedXaloVault {
+export interface SerializedKalosVault {
   totalShares?: SerializedBigNumber
   pricePerFullShare?: SerializedBigNumber
   totalXaloInVault?: SerializedBigNumber
@@ -289,8 +289,8 @@ export interface PublicIfoData {
 export interface PoolsState {
   data: SerializedPool[]
   ifo: IfoState
-  xaloVault: SerializedLockedXaloVault
-  xaloFlexibleSideVault: SerializedXaloVault
+  xaloVault: SerializedLockedKalosVault
+  xaloFlexibleSideVault: SerializedKalosVault
   userDataLoaded: boolean
 }
 

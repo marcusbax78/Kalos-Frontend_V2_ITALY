@@ -13,7 +13,7 @@ const InlineText = styled(Text)`
   display: inline;
 `
 
-const XaloVaultCardActions: React.FC<{
+const KalosVaultCardActions: React.FC<{
   pool: DeserializedPool
   accountHasSharesStaked: boolean
   isLoading: boolean
@@ -61,4 +61,4 @@ const XaloVaultCardActions: React.FC<{
   )
 }
 
-export default XaloVaultCardActions
+export default KalosVaultCardActions

@@ -124,8 +124,8 @@ export const useFetchIfo = () => {
   }, [dispatch])
 }
 
-export const useXaloVault = () => {
-  return useVaultPoolByKey(VaultKey.XaloVault)
+export const useKalosVault = () => {
+  return useVaultPoolByKey(VaultKey.KalosVault)
 }
 
 export const useVaultPoolByKey = (key: VaultKey) => {

@@ -49,7 +49,7 @@ import {
   Weth,
   Xalo,
   Erc721collection,
-  XaloVaultV2,
+  KalosVaultV2,
   XaloFlexibleSideVaultV2,
 } from 'config/abi/types'
 
@@ -216,10 +216,10 @@ export const useEasterNftContract = () => {
   return useMemo(() => getEasterNftContract(library.getSigner()), [library])
 }
 
-export const useVaultPoolContract = (vaultKey: VaultKey): XaloVaultV2 | XaloFlexibleSideVaultV2 => {
+export const useVaultPoolContract = (vaultKey: VaultKey): KalosVaultV2 | XaloFlexibleSideVaultV2 => {
   const { library } = useActiveWeb3React()
   return useMemo(() => {
-    if (vaultKey === VaultKey.XaloVault) {
+    if (vaultKey === VaultKey.KalosVault) {
       return getKalosVaultContract(library.getSigner())
     }
     if (vaultKey === VaultKey.XaloFlexibleSideVault) {
@@ -259,7 +259,7 @@ export const useChainlinkOracleContract = (address, withSignerIfPossible = true)
   return useMemo(() => getChainlinkOracleContract(address, signer), [signer, address])
 }
 
-export const useSpecialBunnyXaloVaultContract = () => {
+export const useSpecialBunnyKalosVaultContract = () => {
   const { library } = useActiveWeb3React()
   return useMemo(() => getBunnySpecialCakeVaultContract(library.getSigner()), [library])
 }

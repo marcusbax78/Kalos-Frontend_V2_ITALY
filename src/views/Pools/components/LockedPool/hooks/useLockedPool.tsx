@@ -39,7 +39,7 @@ export default function useLockedPool(hookArgs: HookArgs): HookReturn {
 
   const { account } = useWeb3React()
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
-  const vaultPoolContract = useVaultPoolContract(VaultKey.XaloVault)
+  const vaultPoolContract = useVaultPoolContract(VaultKey.KalosVault)
   const { callWithGasPrice } = useCallWithGasPrice()
 
   const { t } = useTranslation()
@@ -50,7 +50,7 @@ export default function useLockedPool(hookArgs: HookArgs): HookReturn {
   const handleDeposit = useCallback(
     async (convertedStakeAmount: BigNumber, lockDuration: number) => {
       const callOptions = {
-        gasLimit: vaultPoolConfig[VaultKey.XaloVault].gasLimit,
+        gasLimit: vaultPoolConfig[VaultKey.KalosVault].gasLimit,
       }
 
       const receipt = await fetchWithCatchTxError(() => {

@@ -30,32 +30,32 @@ export const makeVaultPoolByKey = (key) => createSelector([selectVault(key)], (v
 export const poolsWithVaultSelector = createSelector(
   [
     poolsWithUserDataLoadingSelector,
-    makeVaultPoolByKey(VaultKey.XaloVault),
+    makeVaultPoolByKey(VaultKey.KalosVault),
     makeVaultPoolByKey(VaultKey.XaloFlexibleSideVault),
   ],
-  (poolsWithUserDataLoading, deserializedLockedXaloVault, deserializedFlexibleSideXaloVault) => {
+  (poolsWithUserDataLoading, deserializedLockedKalosVault, deserializedFlexibleSideKalosVault) => {
     const { pools, userDataLoaded } = poolsWithUserDataLoading
     const xaloPool = pools.find((pool) => !pool.isFinished && pool.sousId === 0)
     const withoutCakePool = pools.filter((pool) => pool.sousId !== 0)
 
     const cakeAutoVault = {
       ...xaloPool,
-      ...deserializedLockedXaloVault,
-      vaultKey: VaultKey.XaloVault,
-      userData: { ...xaloPool.userData, ...deserializedLockedXaloVault.userData },
+      ...deserializedLockedKalosVault,
+      vaultKey: VaultKey.KalosVault,
+      userData: { ...xaloPool.userData, ...deserializedLockedKalosVault.userData },
     }
 
-    const lockedVaultPosition = getVaultPosition(deserializedLockedXaloVault.userData)
-    const hasFlexibleSideSharesStaked = deserializedFlexibleSideXaloVault.userData.userShares.gt(0)
+    const lockedVaultPosition = getVaultPosition(deserializedLockedKalosVault.userData)
+    const hasFlexibleSideSharesStaked = deserializedFlexibleSideKalosVault.userData.userShares.gt(0)
 
     const cakeAutoFlexibleSideVault =
       lockedVaultPosition > VaultPosition.Flexible || hasFlexibleSideSharesStaked
         ? [
             {
               ...xaloPool,
-              ...deserializedFlexibleSideXaloVault,
+              ...deserializedFlexibleSideKalosVault,
               vaultKey: VaultKey.XaloFlexibleSideVault,
-              userData: { ...xaloPool.userData, ...deserializedFlexibleSideXaloVault.userData },
+              userData: { ...xaloPool.userData, ...deserializedFlexibleSideKalosVault.userData },
             },
           ]
         : []

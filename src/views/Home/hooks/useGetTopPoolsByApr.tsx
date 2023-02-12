@@ -42,7 +42,7 @@ const useGetTopPoolsByApr = (isIntersecting: boolean) => {
 
   useEffect(() => {
     const [xaloPools, otherPools] = partition(pools, (pool) => pool.sousId === 0)
-    const masterCakePool = xaloPools.filter((xaloPool) => xaloPool.vaultKey === VaultKey.XaloVault)
+    const masterCakePool = xaloPools.filter((xaloPool) => xaloPool.vaultKey === VaultKey.KalosVault)
     const getTopPoolsByApr = (activePools: DeserializedPool[]) => {
       const sortedByApr = orderBy(activePools, (pool: DeserializedPool) => pool.apr || 0, 'desc')
       setTopPools([...masterCakePool, ...sortedByApr.slice(0, 4)])

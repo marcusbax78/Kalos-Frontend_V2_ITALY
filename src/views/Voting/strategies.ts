@@ -43,7 +43,7 @@ export const xaloVaultBalanceStrategy = {
           type: 'address',
         },
       ],
-      name: 'getXaloVaultBalance',
+      name: 'getKalosVaultBalance',
       outputs: [
         {
           internalType: 'uint256',

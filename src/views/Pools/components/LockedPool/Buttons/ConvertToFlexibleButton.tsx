@@ -18,14 +18,14 @@ const ConvertToFlexibleButton: React.FC<ButtonProps> = (props) => {
 
   const { account } = useWeb3React()
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
-  const vaultPoolContract = useVaultPoolContract(VaultKey.XaloVault)
+  const vaultPoolContract = useVaultPoolContract(VaultKey.KalosVault)
   const { callWithGasPrice } = useCallWithGasPrice()
   const { t } = useTranslation()
   const { toastSuccess } = useToast()
 
   const handleUnlock = useCallback(async () => {
     const callOptions = {
-      gasLimit: vaultPoolConfig[VaultKey.XaloVault].gasLimit,
+      gasLimit: vaultPoolConfig[VaultKey.KalosVault].gasLimit,
     }
 
     const receipt = await fetchWithCatchTxError(() => {

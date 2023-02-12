@@ -20,7 +20,7 @@ export const BOOST_WEIGHT = BigNumber.from('20000000000000')
 export const DURATION_FACTOR = BigNumber.from('31536000')
 
 export const vaultPoolConfig = {
-  [VaultKey.XaloVaultV1]: {
+  [VaultKey.KalosVaultV1]: {
     name: <Trans>Auto XALO</Trans>,
     description: <Trans>Automatic restaking</Trans>,
     autoCompoundFrequency: 5000,
@@ -30,7 +30,7 @@ export const vaultPoolConfig = {
       secondarySrc: '/images/tokens/autorenew.svg',
     },
   },
-  [VaultKey.XaloVault]: {
+  [VaultKey.KalosVault]: {
     name: <Trans>Stake XALO</Trans>,
     description: <Trans>Stake, Earn – And more!</Trans>,
     autoCompoundFrequency: 5000,

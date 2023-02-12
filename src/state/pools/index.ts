@@ -9,7 +9,7 @@ import {
   SerializedLockedVaultUser,
   PublicIfoData,
   SerializedVaultUser,
-  SerializedLockedXaloVault,
+  SerializedLockedKalosVault,
 } from 'state/types'
 import { getPoolApr } from 'utils/apr'
 import { BIG_ZERO } from 'utils/bigNumber'
@@ -299,7 +299,7 @@ export const fetchKalosVaultPublicData = createAsyncThunk<SerializedLockedKalosV
   },
 )
 
-export const fetchXaloFlexibleSideVaultPublicData = createAsyncThunk<SerializedXaloVault>(
+export const fetchXaloFlexibleSideVaultPublicData = createAsyncThunk<SerializedKalosVault>(
   'xaloFlexibleSideVault/fetchPublicData',
   async () => {
     const publicVaultInfo = await fetchPublicFlexibleSideVaultData()
@@ -413,12 +413,12 @@ export const PoolsSlice = createSlice({
       console.error('[Pools Action] Error fetching pool user data', action.payload)
     })
     // Vault public data that updates frequently
-    builder.addCase(fetchXaloVaultPublicData.fulfilled, (state, action: PayloadAction<SerializedLockedXaloVault>) => {
+    builder.addCase(fetchKalosVaultPublicData.fulfilled, (state, action: PayloadAction<SerializedLockedKalosVault>) => {
       state.xaloVault = { ...state.xaloVault, ...action.payload }
     })
     builder.addCase(
       fetchXaloFlexibleSideVaultPublicData.fulfilled,
-      (state, action: PayloadAction<SerializedXaloVault>) => {
+      (state, action: PayloadAction<SerializedKalosVault>) => {
         state.xaloFlexibleSideVault = { ...state.xaloFlexibleSideVault, ...action.payload }
       },
     )

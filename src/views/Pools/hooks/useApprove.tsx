@@ -11,8 +11,8 @@ import useToast from 'hooks/useToast'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
 import useCatchTxError from 'hooks/useCatchTxError'
 import { ToastDescriptionWithTx } from 'components/Toast'
-import useCakeApprovalStatus from 'hooks/useXaloApprovalStatus'
-import useCakeApprove from 'hooks/useXaloApprove'
+import useXaloApprovalStatus from 'hooks/useXaloApprovalStatus'
+import useXaloApprove from 'hooks/useXaloApprove'
 
 export const useApprovePool = (lpContract: Contract, sousId, earningTokenSymbol) => {
   const { toastSuccess } = useToast()
@@ -52,20 +52,20 @@ export const useApprovePool = (lpContract: Contract, sousId, earningTokenSymbol)
   return { handleApprove, pendingTx }
 }
 
-// Approve CAKE auto pool
+// Approve XALO auto pool
 export const useVaultApprove = (vaultKey: VaultKey, setLastUpdated: () => void) => {
   const vaultPoolContract = useVaultPoolContract(vaultKey)
   const { t } = useTranslation()
 
-  return useCakeApprove(
+  return useXaloApprove(
     setLastUpdated,
     vaultPoolContract?.address,
-    t('You can now stake in the %symbol% vault!', { symbol: 'CAKE' }),
+    t('You can now stake in the %symbol% vault!', { symbol: 'XALO' }),
   )
 }
 
 export const useCheckVaultApprovalStatus = (vaultKey: VaultKey) => {
   const vaultPoolContract = useVaultPoolContract(vaultKey)
 
-  return useCakeApprovalStatus(vaultPoolContract?.address)
+  return useXaloApprovalStatus(vaultPoolContract?.address)
 }

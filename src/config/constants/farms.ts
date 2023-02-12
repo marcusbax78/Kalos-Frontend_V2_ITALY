@@ -26,6 +26,18 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.wbnb,
   },
   {
+    pid: 9,
+    v1pid: 9,
+    lpSymbol: 'XALO-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x763CEE0ce3e74f90b1D51424aD1f8dBD6856d692',
+    },
+    token: serializedTokens.xalo,
+    quoteToken: serializedTokens.wbnb,
+    multiplier: '30',
+  },
+  {
     pid: 1,
     v1pid: 1,
     lpSymbol: 'CAKE-BNB LP',
@@ -35,7 +47,7 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.cake,
     quoteToken: serializedTokens.wbnb,
-    multiplier: '30X',
+    multiplier: '30',
   },
   {
     pid: 2,
@@ -47,19 +59,7 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.wbnb,
     quoteToken: serializedTokens.busd,
-    multiplier: '30X',
-  },
-  {
-    pid: 9,
-    v1pid: 9,
-    lpSymbol: 'XALO-BNB LP',
-    lpAddresses: {
-      97: '',
-      56: '0x763CEE0ce3e74f90b1D51424aD1f8dBD6856d692',
-    },
-    token: serializedTokens.xalo,
-    quoteToken: serializedTokens.wbnb,
-    multiplier: '30X',
+    multiplier: '30',
   },
   {
     pid: 8,
@@ -71,7 +71,7 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.usdt,
     quoteToken: serializedTokens.busd,
-    multiplier: '30X',
+    multiplier: '30',
   },
   {
     pid: 4,
@@ -83,7 +83,7 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.btcb,
     quoteToken: serializedTokens.busd,
-    multiplier: '30X',
+    multiplier: '30',
   },
   {
     pid: 5,
@@ -95,7 +95,7 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.wbnb,
     quoteToken: serializedTokens.btcb,
-    multiplier: '30X',
+    multiplier: '30',
   },
   {
     pid: 6,
@@ -107,7 +107,7 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.wbnb,
     quoteToken: serializedTokens.doge,
-    multiplier: '30X',
+    multiplier: '30',
   },
 
   {
@@ -120,7 +120,7 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.wbnb,
     quoteToken: serializedTokens.mbox,
-    multiplier: '30X',
+    multiplier: '30',
   }
   
 ].filter((f) => !!f.lpAddresses[CHAIN_ID])

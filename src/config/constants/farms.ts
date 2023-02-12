@@ -50,6 +50,18 @@ const farms: SerializedFarmConfig[] = [
     multiplier: '30X',
   },
   {
+    pid: 9,
+    v1pid: 9,
+    lpSymbol: 'XALO-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x763CEE0ce3e74f90b1D51424aD1f8dBD6856d692',
+    },
+    token: serializedTokens.xalo,
+    quoteToken: serializedTokens.wbnb,
+    multiplier: '30X',
+  },
+  {
     pid: 8,
     v1pid: 8,
     lpSymbol: 'USDT-BUSD LP',

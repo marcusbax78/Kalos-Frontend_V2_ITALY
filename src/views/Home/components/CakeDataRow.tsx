@@ -73,7 +73,7 @@ const emissionsPerBlock = 30
  * https://bscscan.com/tx/0xd5ffea4d9925d2f79249a4ce05efd4459ed179152ea5072a2df73cd4b9e88ba7
  */
 const planetFinanceBurnedTokensWei = BigNumber.from('000000')
-const xaloVault = getKalosVaultContract()
+const KalosVault = getKalosVaultContract()
 
 const CakeDataRow = () => {
   const { t } = useTranslation()
@@ -98,7 +98,7 @@ const CakeDataRow = () => {
         multicallv2(xaloAbi, [totalSupplyCall, burnedTokenCall], {
           requireSuccess: false,
         }),
-        xaloVault.totalLockedAmount(),
+        KalosVault.totalLockedAmount(),
       ])
       const [totalSupply, burned] = tokenDataResultRaw.flat()
 
@@ -170,7 +170,7 @@ const CakeDataRow = () => {
       <StyledColumn style={{ gridArea: 'f' }}>
         <Text color="textSubtle">{t('Current emissions')}</Text>
 
-        <Heading scale="lg">{t('%cakeEmissions%/block', { cakeEmissions: emissionsPerBlock })}</Heading>
+        <Heading scale="lg">{t('%xaloEmissions%/block', { xaloEmissions: emissionsPerBlock })}</Heading>
       </StyledColumn>
     </Grid>
   )

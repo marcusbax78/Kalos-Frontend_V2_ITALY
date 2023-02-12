@@ -29,7 +29,7 @@ import BigNumber from 'bignumber.js'
 import { getFullDisplayBalance, formatNumber, getDecimalAmount } from 'utils/formatBalance'
 import useToast from 'hooks/useToast'
 import useCatchTxError from 'hooks/useCatchTxError'
-import { fetchXaloVaultUserData } from 'state/pools'
+import { fetchKalosVaultUserData } from 'state/pools'
 import { DeserializedPool, VaultKey } from 'state/types'
 import { getInterestBreakdown } from 'utils/compoundApyHelpers'
 import { ToastDescriptionWithTx } from 'components/Toast'
@@ -160,7 +160,7 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({
         </ToastDescriptionWithTx>,
       )
       onDismiss?.()
-      dispatch(fetchXaloVaultUserData({ account }))
+      dispatch(fetchKalosVaultUserData({ account }))
     }
   }
 
@@ -181,7 +181,7 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({
         </ToastDescriptionWithTx>,
       )
       onDismiss?.()
-      dispatch(fetchXaloVaultUserData({ account }))
+      dispatch(fetchKalosVaultUserData({ account }))
     }
   }
 

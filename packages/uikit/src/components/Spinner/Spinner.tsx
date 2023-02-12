@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import PanIcon from "./PanIcon";
+/* import PanIcon from "./PanIcon"; */
 import PancakeIcon from "./PancakeIcon";
 import { SpinnerProps } from "./types";
 
@@ -37,10 +37,10 @@ const RotatingPancakeIcon = styled(PancakeIcon)`
   transform: translate3d(0, 0, 0);
 `;
 
-const FloatingPanIcon = styled(PanIcon)`
+/* const FloatingPanIcon = styled(PanIcon)`
   animation: ${float} 6s ease-in-out infinite;
   transform: translate3d(0, 0, 0);
-`;
+`; */
 
 const Spinner: React.FC<SpinnerProps> = ({ size = 128 }) => {
   return (

@@ -70,7 +70,7 @@ export default {
     56: '0x23c41D28A239dDCAABd1bb1deF8d057189510066',
     97: '0x24ec6962dbe874F6B67B5C50857565667fA0854F',
   },
-  xaloVault: {
+  kalosVault: {
     56: mainnetKalosVault.address,
     97: testnetKalosVault.address,
   },

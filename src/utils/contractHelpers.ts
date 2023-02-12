@@ -122,7 +122,7 @@ import type {
   PancakeSquad,
   Erc721collection,
   PointCenterIfo,
-  xaloVault,
+  kalosVault,
   XaloFlexibleSideVaultV2,
   TradingCompetitionMobox,
   ICake,
@@ -221,7 +221,7 @@ export const getEasterNftContract = (signer?: Signer | Provider) => {
   return getContract(easterNftAbi, getEasterNftAddress(), signer) as EasterNft
 }
 export const getKalosVaultContract = (signer?: Signer | Provider) => {
-  return getContract(kalosVaultAbi, getKalosVaultAddress(), signer) as xaloVault
+  return getContract(kalosVaultAbi, getKalosVaultAddress(), signer) as kalosVault
 }
 
 export const getXaloFlexibleSideVaultV2Contract = (signer?: Signer | Provider) => {

@@ -153,14 +153,7 @@
       "chainId": 97,
       "decimals": 18,
       "logoURI": "https://pancakeswap.finance/images/tokens/0x0739138e18B0273d8375F83EF5351d68E9285f1E.png"
-    },
-    {
-      "name": "Xkalo Token",
-      "symbol": "XKALO",
-      "address": "0x518Ed01eb7f5fff05aa4eb8b517b44b21Dc5Fffb",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": "https://pancakeswap.finance/images/tokens/0x518Ed01eb7f5fff05aa4eb8b517b44b21Dc5Fffb.png"
     }
+    
   ]
 }

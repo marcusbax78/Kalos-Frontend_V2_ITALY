@@ -30,7 +30,7 @@ export const infoServerClient = new GraphQLClient(INFO_CLIENT, {
 export const bitQueryServerClient = new GraphQLClient(process.env.NEXT_PUBLIC_BIT_QUERY_ENDPOINT, {
   headers: {
     // only server, no `NEXT_PUBLIC` not going to expose in client
-    'X-API-KEY': "BQYRX5vSNLWyLnd0dUKZi7kJJ9E0Vwjk",
+    'X-API-KEY': "process.env.BIT_QUERY_HEADER",
   },
   timeout: 5000,
 })

@@ -109,6 +109,18 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.doge,
     multiplier: '30X',
   },
+  {
+    pid: 10,
+    v1pid: 10,
+    lpSymbol: 'BNB-SHIBA LP',
+    lpAddresses: {
+      97: '',
+      56: '0x18F1311F5eca9b8239335fE9732Dd766722Dd5a6',
+    },
+    token: serializedTokens.wbnb,
+    quoteToken: serializedTokens.shib,
+    multiplier: '15X',
+  },
 
   {
     pid: 7,

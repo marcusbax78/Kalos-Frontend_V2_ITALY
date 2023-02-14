@@ -19,7 +19,7 @@ export interface SalesSectionProps {
 }
 
 const SalesSection: React.FC<SalesSectionProps> = (props) => {
-  const { headingText, bodyText, reverse, primaryButton, secondaryButton, images } = props
+  const { headingText, bodyText, reverse, primaryButton, secondaryButton, /* images */ } = props
 
   return (
     <Flex flexDirection="column">

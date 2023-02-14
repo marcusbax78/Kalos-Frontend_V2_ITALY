@@ -52,16 +52,16 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
   },
 })
 
-const kalosToken = DEFAULT_TOKEN_LIST.tokens.filter((token) => token.name === 'Kalosdefi Token' && token.chainId === parseInt(CHAIN_ID))[0]
+// const kalosToken = DEFAULT_TOKEN_LIST.tokens.filter((token) => token.name === 'Kalosdefi Token' && token.chainId === parseInt(CHAIN_ID))[0]
 
 export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
   headingText: t('KALOS DEFI.'),
   bodyText: t(
-    'XALO token is at the heart of the Kalos ecosystem. Buy it, farm it, spend it, stake it... heck, you can even vote with it!',
+    'XALO token is at the heart of the Kalos ecosystem. Buy it, farm it, spend it, stake it..., you can even vote with it!',
   ),
   reverse: false,
   primaryButton: {
-    to: `/swap?outputCurrency=${ kalosToken }`,
+    to: '/swap?outputCurrency=0x0739138e18B0273d8375F83EF5351d68E9285f1E',
     text: t('Buy XALO'),
     external: false,
   },

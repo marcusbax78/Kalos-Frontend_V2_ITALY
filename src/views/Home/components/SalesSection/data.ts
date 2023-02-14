@@ -42,14 +42,14 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
     text: t('Learn'),
     external: true,
   },
-    /* images: {
+    images: {
     path: '/images/home/earn/',
     attributes: [
       { src: 'pie', alt: t('Pie chart') },
       { src: 'stonks', alt: t('Stocks chart') },
       { src: 'folder', alt: t('Folder with cake token') }, 
     ], 
-  }, */
+  }, 
 }) 
 
 // const kalosToken = DEFAULT_TOKEN_LIST.tokens.filter((token) => token.name === 'Kalosdefi Token' && token.chainId === parseInt(CHAIN_ID))[0]
@@ -71,7 +71,7 @@ export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
     external: true,
   },
 
-  /* images: {
+  images: {
     path: '/images/home/cake/',
     attributes: [
       { src: 'bottom-right', alt: t('Small 3d pancake') },
@@ -79,5 +79,5 @@ export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
       { src: 'coin', alt: t('XALO token') },
       { src: 'top-left', alt: t('Small 3d pancake') },
     ],
-  }, */
+  },
 })

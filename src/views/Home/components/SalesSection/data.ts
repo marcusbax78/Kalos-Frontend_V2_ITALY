@@ -61,7 +61,7 @@ export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
   ),
   reverse: false,
   primaryButton: {
-    to: `/swap?outputCurrency=${  kalosToken}`,
+    to: `/swap?outputCurrency=${ kalosToken }`,
     text: t('Buy XALO'),
     external: false,
   },

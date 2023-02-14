@@ -1,6 +1,6 @@
 import { Flex, Text, Button, Link } from '@pancakeswap/uikit'
 import { NextLinkFromReactRouter as RouterLink } from 'components/NextLink'
-import CompositeImage, { CompositeImageProps } from '../CompositeImage'
+// import CompositeImage, { CompositeImageProps } from '../CompositeImage'
 import ColoredWordHeading from '../ColoredWordHeading'
 
 interface SalesSectionButton {
@@ -15,7 +15,7 @@ export interface SalesSectionProps {
   reverse: boolean
   primaryButton: SalesSectionButton
   secondaryButton: SalesSectionButton
-  images: CompositeImageProps
+  // images: CompositeImageProps
 }
 
 const SalesSection: React.FC<SalesSectionProps> = (props) => {
@@ -70,7 +70,7 @@ const SalesSection: React.FC<SalesSectionProps> = (props) => {
           flex={[null, null, null, '1']}
           mb={['24px', null, null, '0']}
         >
-          <CompositeImage {...images} />
+          
         </Flex>
       </Flex>
     </Flex>

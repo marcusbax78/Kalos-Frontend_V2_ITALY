@@ -5,7 +5,7 @@ import { FlexGap } from 'components/Layout/Flex'
 import { vaultPoolConfig } from 'config/constants/pools'
 import { useTranslation } from 'contexts/Localization'
 import { useVaultPoolByKey } from 'state/pools/hooks'
-import { DeserializedPool, VaultKey, DeserializedLockedXaloVault, DeserializedXaloVault } from 'state/types'
+import { DeserializedPool, VaultKey, DeserializedLockedKalosVault, DeserializedKalosVault } from 'state/types'
 import styled from 'styled-components'
 
 import CardFooter from '../PoolCard/CardFooter'
@@ -22,25 +22,25 @@ const StyledCardBody = styled(CardBody)<{ isLoading: boolean }>`
   min-height: ${({ isLoading }) => (isLoading ? '0' : '254px')};
 `
 
-interface XaloVaultProps extends CardProps {
+interface KalosVaultProps extends CardProps {
   pool: DeserializedPool
   showStakedOnly: boolean
   defaultFooterExpanded?: boolean
   showICake?: boolean
 }
 
-interface XaloVaultDetailProps {
+interface KalosVaultDetailProps {
   isLoading?: boolean
   account: string
   pool: DeserializedPool
-  vaultPool: DeserializedXaloVault
+  vaultPool: DeserializedKalosVault
   accountHasSharesStaked: boolean
   defaultFooterExpanded?: boolean
   showICake?: boolean
   performanceFeeAsDecimal: number
 }
 
-export const XaloVaultDetail: React.FC<XaloVaultDetailProps> = ({
+export const KalosVaultDetail: React.FC<KalosVaultDetailProps> = ({
   isLoading = false,
   account,
   pool,
@@ -55,14 +55,14 @@ export const XaloVaultDetail: React.FC<XaloVaultDetailProps> = ({
   return (
     <>
       <StyledCardBody isLoading={isLoading}>
-        {account && pool.vaultKey === VaultKey.XaloVault && (
-          <VaultPositionTagWithLabel userData={(vaultPool as DeserializedLockedXaloVault).userData} />
+        {account && pool.vaultKey === VaultKey.KalosVault && (
+          <VaultPositionTagWithLabel userData={(vaultPool as DeserializedLockedKalosVault).userData} />
         )}
         {account &&
-        pool.vaultKey === VaultKey.XaloVault &&
-        (vaultPool as DeserializedLockedXaloVault).userData.locked ? (
+        pool.vaultKey === VaultKey.KalosVault &&
+        (vaultPool as DeserializedLockedKalosVault).userData.locked ? (
           <LockedStakingApy
-            userData={(vaultPool as DeserializedLockedXaloVault).userData}
+            userData={(vaultPool as DeserializedLockedKalosVault).userData}
             stakingToken={pool?.stakingToken}
             stakingTokenBalance={pool?.userData?.stakingTokenBalance}
             showICake={showICake}
@@ -105,7 +105,7 @@ export const XaloVaultDetail: React.FC<XaloVaultDetailProps> = ({
   )
 }
 
-const XaloVaultCard: React.FC<XaloVaultProps> = ({
+const KalosVaultCard: React.FC<KalosVaultProps> = ({
   pool,
   showStakedOnly,
   defaultFooterExpanded,
@@ -137,7 +137,7 @@ const XaloVaultCard: React.FC<XaloVaultProps> = ({
         />
         <TokenPairImage {...vaultPoolConfig[pool.vaultKey].tokenImage} width={64} height={64} />
       </PoolCardHeader>
-      <XaloVaultDetail
+      <KalosVaultDetail
         isLoading={isLoading}
         account={account}
         pool={pool}
@@ -151,4 +151,4 @@ const XaloVaultCard: React.FC<XaloVaultProps> = ({
   )
 }
 
-export default XaloVaultCard
+export default KalosVaultCard

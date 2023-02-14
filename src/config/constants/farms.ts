@@ -26,6 +26,18 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.wbnb,
   },
   {
+    pid: 9,
+    v1pid: 9,
+    lpSymbol: 'XALO-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x763CEE0ce3e74f90b1D51424aD1f8dBD6856d692',
+    },
+    token: serializedTokens.xalo,
+    quoteToken: serializedTokens.wbnb,
+    multiplier: '30X',
+  },
+  {
     pid: 1,
     v1pid: 1,
     lpSymbol: 'CAKE-BNB LP',
@@ -35,6 +47,7 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.cake,
     quoteToken: serializedTokens.wbnb,
+    multiplier: '30X',
   },
   {
     pid: 2,
@@ -46,17 +59,19 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.wbnb,
     quoteToken: serializedTokens.busd,
+    multiplier: '30X',
   },
   {
-    pid: 3,
-    v1pid: 3,
+    pid: 8,
+    v1pid: 8,
     lpSymbol: 'USDT-BUSD LP',
     lpAddresses: {
       97: '',
-      56: '0xc188f34FA1217AE7da853986703b60A5DFDfb651',
+      56: '0x754FC573358953B78D7698B5B510fA446648A8AC', // 0xc188f34FA1217AE7da853986703b60A5DFDfb651' OLD FARM pid 3
     },
     token: serializedTokens.usdt,
     quoteToken: serializedTokens.busd,
+    multiplier: '30X',
   },
   {
     pid: 4,
@@ -68,6 +83,7 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.btcb,
     quoteToken: serializedTokens.busd,
+    multiplier: '30X',
   },
   {
     pid: 5,
@@ -79,6 +95,7 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.wbnb,
     quoteToken: serializedTokens.btcb,
+    multiplier: '30X',
   },
   {
     pid: 6,
@@ -90,6 +107,19 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.wbnb,
     quoteToken: serializedTokens.doge,
+    multiplier: '30X',
+  },
+  {
+    pid: 10,
+    v1pid: 10,
+    lpSymbol: 'BNB-SHIBA LP',
+    lpAddresses: {
+      97: '',
+      56: '0x18F1311F5eca9b8239335fE9732Dd766722Dd5a6',
+    },
+    token: serializedTokens.wbnb,
+    quoteToken: serializedTokens.shib,
+    multiplier: '15X',
   },
 
   {
@@ -102,6 +132,7 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.wbnb,
     quoteToken: serializedTokens.mbox,
+    multiplier: '30X',
   }
   
 ].filter((f) => !!f.lpAddresses[CHAIN_ID])

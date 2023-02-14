@@ -8,7 +8,7 @@ import BigNumber from 'bignumber.js'
 import { getDecimalAmount } from 'utils/formatBalance'
 import useToast from 'hooks/useToast'
 import useCatchTxError from 'hooks/useCatchTxError'
-import { fetchXaloVaultUserData } from 'state/pools'
+import { fetchKalosVaultUserData } from 'state/pools'
 import { Token } from '@kalosdefi/sdk'
 import { ONE_WEEK_DEFAULT, vaultPoolConfig } from 'config/constants/pools'
 import { VaultKey } from 'state/types'
@@ -39,7 +39,7 @@ export default function useLockedPool(hookArgs: HookArgs): HookReturn {
 
   const { account } = useWeb3React()
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
-  const vaultPoolContract = useVaultPoolContract(VaultKey.XaloVault)
+  const vaultPoolContract = useVaultPoolContract(VaultKey.KalosVault)
   const { callWithGasPrice } = useCallWithGasPrice()
 
   const { t } = useTranslation()
@@ -50,7 +50,7 @@ export default function useLockedPool(hookArgs: HookArgs): HookReturn {
   const handleDeposit = useCallback(
     async (convertedStakeAmount: BigNumber, lockDuration: number) => {
       const callOptions = {
-        gasLimit: vaultPoolConfig[VaultKey.XaloVault].gasLimit,
+        gasLimit: vaultPoolConfig[VaultKey.KalosVault].gasLimit,
       }
 
       const receipt = await fetchWithCatchTxError(() => {
@@ -68,7 +68,7 @@ export default function useLockedPool(hookArgs: HookArgs): HookReturn {
           </ToastDescriptionWithTx>,
         )
         onDismiss?.()
-        dispatch(fetchXaloVaultUserData({ account }))
+        dispatch(fetchKalosVaultUserData({ account }))
       }
     },
     [fetchWithCatchTxError, toastSuccess, dispatch, onDismiss, account, vaultPoolContract, t, callWithGasPrice],

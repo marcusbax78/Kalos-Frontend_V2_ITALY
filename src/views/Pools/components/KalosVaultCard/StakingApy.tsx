@@ -51,7 +51,7 @@ export const StakingApy = memo(({ pool }: { pool: DeserializedPool }) => {
           <Skeleton width="80px" height="16px" />
         )}
       </Flex>
-      {pool.vaultKey === VaultKey.XaloVault && (
+      {pool.vaultKey === VaultKey.KalosVault && (
         <Flex alignItems="center" justifyContent="space-between">
           <Text color="textSubtle" textTransform="uppercase" bold fontSize="12px">
             {t('Locked')} APY:

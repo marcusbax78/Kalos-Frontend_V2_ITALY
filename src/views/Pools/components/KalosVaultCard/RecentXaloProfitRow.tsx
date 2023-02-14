@@ -4,7 +4,7 @@ import { useTranslation } from 'contexts/Localization'
 import { usePriceCakeBusd } from 'state/farms/hooks'
 import { useVaultPoolByKey } from 'state/pools/hooks'
 import { DeserializedPool, VaultKey, DeserializedLockedVaultUser } from 'state/types'
-import { getXaloVaultEarnings } from 'views/Pools/helpers'
+import { getKalosVaultEarnings } from 'views/Pools/helpers'
 import RecentXaloProfitBalance from './RecentXaloProfitBalance'
 
 const RecentXaloProfitCountdownRow = ({ pool }: { pool: DeserializedPool }) => {
@@ -12,13 +12,13 @@ const RecentXaloProfitCountdownRow = ({ pool }: { pool: DeserializedPool }) => {
   const { account } = useWeb3React()
   const { pricePerFullShare, userData } = useVaultPoolByKey(pool.vaultKey)
   const xaloPriceBusd = usePriceCakeBusd()
-  const { hasAutoEarnings, autoXaloToDisplay } = getXaloVaultEarnings(
+  const { hasAutoEarnings, autoXaloToDisplay } = getKalosVaultEarnings(
     account,
     userData.xaloAtLastUserAction,
     userData.userShares,
     pricePerFullShare,
     xaloPriceBusd.toNumber(),
-    pool.vaultKey === VaultKey.XaloVault
+    pool.vaultKey === VaultKey.KalosVault
       ? (userData as DeserializedLockedVaultUser).currentPerformanceFee.plus(
           (userData as DeserializedLockedVaultUser).currentOverdueFee,
         )

@@ -7,13 +7,13 @@ import { VaultPosition } from 'utils/xaloPool'
 import { MAX_LOCK_DURATION } from 'config/constants/pools'
 import { VaultRoiCalculatorModal } from '../../Vault/VaultRoiCalculatorModal'
 
-interface XaloVaultAprProps {
+interface KalosVaultAprProps {
   pool: DeserializedPool
   userData: DeserializedVaultUser
   vaultPosition: VaultPosition
 }
 
-const XaloVaultApr: React.FC<XaloVaultAprProps> = ({ pool, userData, vaultPosition }) => {
+const KalosVaultApr: React.FC<KalosVaultAprProps> = ({ pool, userData, vaultPosition }) => {
   const { t } = useTranslation()
 
   const { flexibleApy, lockedApy } = useVaultApy({
@@ -56,7 +56,7 @@ const XaloVaultApr: React.FC<XaloVaultAprProps> = ({ pool, userData, vaultPositi
           )}
         </Flex>
       </Box>
-      {pool.vaultKey === VaultKey.XaloVault && (
+      {pool.vaultKey === VaultKey.KalosVault && (
         <Box marginX="8px" mb="8px">
           <Flex justifyContent="space-between">
             <Text fontSize="16px" color="textSubtle" textAlign="left">
@@ -99,4 +99,4 @@ const XaloVaultApr: React.FC<XaloVaultAprProps> = ({ pool, userData, vaultPositi
   )
 }
 
-export default XaloVaultApr
+export default KalosVaultApr

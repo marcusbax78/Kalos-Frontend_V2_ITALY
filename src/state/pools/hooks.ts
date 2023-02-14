@@ -9,9 +9,9 @@ import { livePools } from 'config/constants/pools'
 import {
   fetchPoolsPublicDataAsync,
   fetchPoolsUserDataAsync,
-  fetchXaloVaultPublicData,
-  fetchXaloVaultUserData,
-  fetchXaloVaultFees,
+  fetchKalosVaultPublicData,
+  fetchKalosVaultUserData,
+  fetchKalosVaultFees,
   fetchPoolsStakingLimitsAsync,
   fetchUserIfoCreditDataAsync,
   fetchIfoPublicDataAsync,
@@ -84,12 +84,12 @@ export const usePoolsPageFetch = () => {
 
   useFastRefreshEffect(() => {
     batch(() => {
-      dispatch(fetchXaloVaultPublicData())
+      dispatch(fetchKalosVaultPublicData())
       dispatch(fetchXaloFlexibleSideVaultPublicData())
       dispatch(fetchIfoPublicDataAsync())
       if (account) {
         dispatch(fetchPoolsUserDataAsync(account))
-        dispatch(fetchXaloVaultUserData({ account }))
+        dispatch(fetchKalosVaultUserData({ account }))
         dispatch(fetchXaloFlexibleSideVaultUserData({ account }))
       }
     })
@@ -97,7 +97,7 @@ export const usePoolsPageFetch = () => {
 
   useEffect(() => {
     batch(() => {
-      dispatch(fetchXaloVaultFees())
+      dispatch(fetchKalosVaultFees())
       dispatch(fetchXaloFlexibleSideVaultFees())
     })
   }, [dispatch])
@@ -109,23 +109,23 @@ export const useFetchIfo = () => {
 
   useFastRefreshEffect(() => {
     batch(() => {
-      dispatch(fetchXaloVaultPublicData())
+      dispatch(fetchKalosVaultPublicData())
       dispatch(fetchIfoPublicDataAsync())
       if (account) {
         dispatch(fetchPoolsUserDataAsync(account))
-        dispatch(fetchXaloVaultUserData({ account }))
+        dispatch(fetchKalosVaultUserData({ account }))
         dispatch(fetchUserIfoCreditDataAsync(account))
       }
     })
   }, [dispatch, account])
 
   useEffect(() => {
-    dispatch(fetchXaloVaultFees())
+    dispatch(fetchKalosVaultFees())
   }, [dispatch])
 }
 
-export const useXaloVault = () => {
-  return useVaultPoolByKey(VaultKey.XaloVault)
+export const useKalosVault = () => {
+  return useVaultPoolByKey(VaultKey.KalosVault)
 }
 
 export const useVaultPoolByKey = (key: VaultKey) => {

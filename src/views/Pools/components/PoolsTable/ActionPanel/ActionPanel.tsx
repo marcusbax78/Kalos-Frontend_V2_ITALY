@@ -3,7 +3,7 @@ import { Box, Flex, HelpIcon, Text, useTooltip, useMatchBreakpointsContext } fro
 import { useVaultPoolByKey } from 'state/pools/hooks'
 import { getVaultPosition, VaultPosition } from 'utils/xaloPool'
 import BigNumber from 'bignumber.js'
-import { DeserializedPool, VaultKey, DeserializedLockedXaloVault, DeserializedLockedVaultUser } from 'state/types'
+import { DeserializedPool, VaultKey, DeserializedLockedKalosVault, DeserializedLockedVaultUser } from 'state/types'
 import { useTranslation } from 'contexts/Localization'
 import { CompoundingPoolTag, ManualPoolTag } from 'components/Tags'
 import { BIG_ZERO } from 'utils/bigNumber'
@@ -14,7 +14,7 @@ import { VaultPositionTagWithLabel } from '../../Vault/VaultPositionTag'
 import YieldBoostRow from '../../LockedPool/Common/YieldBoostRow'
 import LockDurationRow from '../../LockedPool/Common/LockDurationRow'
 import useUserDataInVaultPresenter from '../../LockedPool/hooks/useUserDataInVaultPresenter'
-import XaloVaultApr from './XaloVaultApr'
+import KalosVaultApr from './KalosVaultApr'
 import PoolStatsInfo from '../../PoolStatsInfo'
 
 const expandAnimation = keyframes`
@@ -155,11 +155,11 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ account, pool, expanded }) =>
   return (
     <StyledActionPanel expanded={expanded}>
       <InfoSection>
-        {isMobile && vaultKey === VaultKey.XaloVault && (vaultData as DeserializedLockedXaloVault).userData.locked && (
+        {isMobile && vaultKey === VaultKey.KalosVault && (vaultData as DeserializedLockedKalosVault).userData.locked && (
           <Box mb="16px">
             <YieldBoostDurationRow
-              lockEndTime={(vaultData as DeserializedLockedXaloVault).userData.lockEndTime}
-              lockStartTime={(vaultData as DeserializedLockedXaloVault).userData.lockStartTime}
+              lockEndTime={(vaultData as DeserializedLockedKalosVault).userData.lockEndTime}
+              lockStartTime={(vaultData as DeserializedLockedKalosVault).userData.lockStartTime}
             />
           </Box>
         )}
@@ -173,11 +173,11 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ account, pool, expanded }) =>
         </span>
       </InfoSection>
       <ActionContainer>
-        {isMobile && vaultKey === VaultKey.XaloVault && vaultPosition === VaultPosition.None && (
-          <XaloVaultApr pool={pool} userData={vaultData.userData} vaultPosition={vaultPosition} />
+        {isMobile && vaultKey === VaultKey.KalosVault && vaultPosition === VaultPosition.None && (
+          <KalosVaultApr pool={pool} userData={vaultData.userData} vaultPosition={vaultPosition} />
         )}
         <Box width="100%">
-          {pool.vaultKey === VaultKey.XaloVault && (
+          {pool.vaultKey === VaultKey.KalosVault && (
             <VaultPositionTagWithLabel
               userData={vaultData.userData as DeserializedLockedVaultUser}
               width={['auto', , 'fit-content']}

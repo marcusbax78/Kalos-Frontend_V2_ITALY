@@ -4,7 +4,7 @@ import { gql } from 'graphql-request'
 import { GetStaticProps } from 'next'
 import { SWRConfig } from 'swr'
 import { bitQueryServerClient, infoServerClient } from 'utils/graphql'
-import { getXaloVaultAddress } from 'utils/addressHelpers'
+import { getKalosVaultAddress } from 'utils/addressHelpers'
 import { getXaloContract } from 'utils/contractHelpers'
 import { getBlocksFromTimestamps } from 'utils/getBlocksFromTimestamps'
 import { formatEther } from '@ethersproject/units'
@@ -110,7 +110,7 @@ export const getStaticProps: GetStaticProps = async () => {
   }
   
   try {
-    const kalosToken = DEFAULT_TOKEN_LIST.tokens.filter((token) => token.name === 'Kalosdefi Token')[0]
+    const kalosToken = DEFAULT_TOKEN_LIST.tokens.filter((token) => token.name === 'Kalos Token')[0]
     const result = await infoServerClient.request(gql`
       query tvl {
         kalosFactories(first: 1) {
@@ -122,9 +122,9 @@ export const getStaticProps: GetStaticProps = async () => {
       }
     `)
     const { totalLiquidityUSD } = result.kalosFactories[0]
-    const xaloVaultV2 = getXaloVaultAddress()
+    const kalosVault = getKalosVaultAddress()
     const xaloContract = getXaloContract()
-    const totalXaloInVault = await xaloContract.balanceOf(xaloVaultV2)
+    const totalXaloInVault = await xaloContract.balanceOf(kalosVault)
     results.tvl = parseFloat(formatEther(totalXaloInVault)) * result.token.derivedUSD + parseFloat(totalLiquidityUSD)
   } catch (error) {
     if (process.env.NODE_ENV === 'production') {

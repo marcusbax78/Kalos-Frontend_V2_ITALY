@@ -1566,7 +1566,7 @@ const tokens = {
       97: "",
     },
     decimals: 18,
-    projectLink: "https://www.shibainu.com/",
+    projectLink: "https://shibatoken.com/",
   },
 };
 

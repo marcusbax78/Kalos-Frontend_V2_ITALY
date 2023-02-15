@@ -1559,6 +1559,15 @@ const tokens = {
     decimals: 9,
     projectLink: "https://www.ampleforth.org/",
   },
+  shib: {
+    symbol: "SHIB",
+    address: {
+      56: "0x2859e4544C4bB03966803b044A93563Bd2D0DD4D",
+      97: "",
+    },
+    decimals: 18,
+    projectLink: "https://www.shibainu.com/",
+  },
 };
 
 export default tokens;

@@ -9,7 +9,7 @@ import type { Signer } from '@ethersproject/abstract-signer'
 import type { Provider } from '@ethersproject/providers'
 import { Contract } from '@ethersproject/contracts'
 import { simpleRpcProvider } from 'utils/providers'
-import xaloVaultAbi from 'config/abi/xaloVault.json'
+import kalosVaultAbi from 'config/abi/xaloVault.json'
 import { FAST_INTERVAL } from 'config/constants'
 import { VaultKey } from 'state/types'
 import { CHAIN_ID } from 'config/constants/networks'
@@ -20,11 +20,11 @@ import KALOS_CONTRACT_LIST from '../../../../../config/constants/kalos-default.c
 const KalosVault = KALOS_CONTRACT_LIST.filter((contract) => contract.name === 'KalosVault/Automatic Pool' && contract.chainId === parseInt(CHAIN_ID))[0]
 
 export const ifoPoolV1Contract = '0x1B2A2f6ed4A1401E8C73B4c2B6172455ce2f78E8'
-export const xaloVaultAddress = KalosVault.address
+export const kalosVaultAddress = KalosVault.address
 
 const getKalosVaultContract = (signer?: Signer | Provider) => {
   const signerOrProvider = signer ?? simpleRpcProvider
-  return new Contract(xaloVaultAddress, xaloVaultAbi, signerOrProvider) as any
+  return new Contract(kalosVaultAddress, kalosVaultAbi, signerOrProvider) as any
 }
 
 const fetchVaultUserV1 = async (account: string) => {
@@ -36,7 +36,7 @@ const fetchVaultUserV1 = async (account: string) => {
       userShares: new BigNumber(userContractResponse.shares.toString()).toJSON(),
       lastDepositedTime: userContractResponse.lastDepositedTime.toString(),
       lastUserActionTime: userContractResponse.lastUserActionTime.toString(),
-      xaloAtLastUserAction: new BigNumber(userContractResponse.xaloAtLastUserAction.toString()).toJSON(),
+      kalosAtLastUserAction: new BigNumber(userContractResponse.kalosAtLastUserAction.toString()).toJSON(),
     }
   } catch (error) {
     return {
@@ -65,9 +65,9 @@ const getIfoPoolData = async (account) => {
 
 const getXaloPoolData = async (account) => {
   const [vaultData, userData, feesData] = await Promise.all([
-    fetchPublicVaultData(xaloVaultAddress),
+    fetchPublicVaultData(kalosVaultAddress),
     fetchVaultUserV1(account),
-    fetchVaultFees(xaloVaultAddress),
+    fetchVaultFees(kalosVaultAddress),
   ])
   const xaloData = {
     ...vaultData,

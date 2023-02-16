@@ -11,10 +11,10 @@ import useToast from 'hooks/useToast'
 import { useWeb3React } from '@web3-react/core'
 import { vaultPoolConfig } from 'config/constants/pools'
 import ifoPoolAbi from 'config/abi/ifoPool.json'
-import xaloVaultAbi from 'config/abi/xaloVaultV2.json'
+import kalosVaultAbi from 'config/abi/xaloVaultV2.json'
 import { getContract } from 'utils/contractHelpers'
 import { getFullDisplayBalance } from 'utils/formatBalance'
-import { useVaultPoolByKeyV1, ifoPoolV1Contract, xaloVaultAddress } from 'views/Migration/hook/V1/Pool/useFetchIfoPool'
+import { useVaultPoolByKeyV1, ifoPoolV1Contract, kalosVaultAddress } from 'views/Migration/hook/V1/Pool/useFetchIfoPool'
 import { useFetchUserPools } from '../../../hook/V1/Pool/useFetchUserPools'
 import useUnstakePool from '../../../hook/V1/Pool/useUnstakePool'
 
@@ -37,7 +37,7 @@ const UnstakeButton: React.FC<UnstakeButtonProps> = ({ pool }) => {
 
   const vaultPoolContract = useMemo(() => {
     return vaultKey === VaultKey.KalosVaultV1
-      ? getContract(xaloVaultAbi, xaloVaultAddress, library.getSigner())
+      ? getContract(kalosVaultAbi, kalosVaultAddress, library.getSigner())
       : getContract(ifoPoolAbi, ifoPoolV1Contract, library.getSigner())
   }, [library, vaultKey])
 

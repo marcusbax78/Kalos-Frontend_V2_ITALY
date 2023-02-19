@@ -11,7 +11,7 @@ const StyledCard = styled(Box)`
   background: ${({ theme }) =>
     theme.isDark
       ? 'linear-gradient(360deg, rgba(49, 61, 92, 0.9) 0%, rgba(61, 42, 84, 0.9) 100%)'
-      : 'linear-gradient(180deg, rgba(70, 73, 74, 0.9) 0%,  rgba(147, 148, 163, 0.9) 51.04%, rgba(134, 137, 138, 0.9) 100%)'};
+      : 'linear-gradient(180deg, rgba(147, 148, 163, 0.9) 0%,  rgba(70, 73, 74, 0.9) 51.04%, rgba(147, 148, 163, 0.9) 100%)'};
 `
 
 const UserBanner = () => {

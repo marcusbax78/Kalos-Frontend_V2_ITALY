@@ -1,6 +1,6 @@
 import { Language } from '@pancakeswap/uikit'
 
-export const AR: Language = { locale: 'ar-SA', language: 'العربية', code: 'ar' }
+//export const AR: Language = { locale: 'ar-SA', language: 'العربية', code: 'ar' }
 export const BN: Language = { locale: 'bn-BD', language: 'বাংলা', code: 'bn' }
 export const EN: Language = { locale: 'en-US', language: 'English', code: 'en' }
 export const DE: Language = { locale: 'de-DE', language: 'Deutsch', code: 'de' }
@@ -30,7 +30,7 @@ export const ZHCN: Language = { locale: 'zh-CN', language: '简体中文', code:
 export const ZHTW: Language = { locale: 'zh-TW', language: '繁體中文', code: 'zh-tw' }
 
 export const languages = {
-  'ar-SA': AR,
+  //'ar-SA': AR,
   'bn-BD': BN,
   'en-US': EN,
   'de-DE': DE,

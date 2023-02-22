@@ -52,6 +52,7 @@ const PhishingWarningBanner: React.FC = () => {
     <>
       <Text as="span" color="warning" small bold textTransform="uppercase">
         {t('Phishing warning: ')}
+        {t(`'please make sure you're visiting '`)}
       </Text>
       {warningTextAsParts.map((text, i) => (
         <Text

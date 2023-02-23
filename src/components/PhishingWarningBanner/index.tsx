@@ -45,13 +45,13 @@ const PhishingWarningBanner: React.FC = () => {
   const [, hideBanner] = usePhishingBannerManager()
   const { isMobile, isMd } = useMatchBreakpointsContext()
   const warningTextAsParts = useMemo(() => {
-    const warningText = t("please make sure you're visiting https://kalosdefi.finance - check the URL carefully.")
+    const warningText = {t("please make sure you're visiting https://kalosdefi.finance - check the URL carefully.")}
     return warningText.split(/(https:\/\/kalosdefi.finance)/g)
   }, [t])
   const warningTextComponent = (
     <>
       <Text as="span" color="warning" small bold textTransform="uppercase">
-        {t('Phishing warning: ')}    
+        {t('Phishing warning: ')  
       </Text>
       {warningTextAsParts.map((text, i) => (
         <Text
